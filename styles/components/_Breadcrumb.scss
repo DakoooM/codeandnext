@@ -1,0 +1,36 @@
+.Breadcrumb {
+  overflow-x: auto;
+  max-width: fit-content;
+  @include flex(
+    $items: center, 
+    $direction: row, 
+    $gap-x: 5px
+  );
+
+  @include scrollbar(true, 5px, 5px, 5px);
+
+  .bread_sep {
+    color: var(--breadcrumb-separator);
+    user-select: none;
+    font-size: 17px;
+  }
+  
+  .Link {
+    white-space: nowrap;
+    font-size: 17px;
+    color: var(--breadcrumb-link-color);
+    transition: color 200ms ease;
+    will-change: color;
+
+    &:not(.disabled):hover {
+      color: var(--breadcrumb-link-color-hover);
+      text-decoration: underline;
+    }
+
+    &.disabled {
+      text-decoration: none;
+      color: var(--breadcrumb-link-active);
+      pointer-events: none;
+    }
+  }
+}

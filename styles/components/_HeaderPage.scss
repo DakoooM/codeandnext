@@ -1,0 +1,40 @@
+.HeaderPage {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: var(--home-present-bg);
+
+  @include for-size(tablet-portrait-up) {
+    height: auto;
+    min-height: auto;
+  }
+  
+  .HeaderPageContainer {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 50px 20px;
+
+    @include flex($contents: space-between, $items: center, $direction: row);
+
+    @include for-size(tablet-landscape-up) {
+      height: auto;
+      min-height: 400px;
+      flex-direction: column;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      justify-content: center;
+    }
+
+    .present-left {
+      position: relative;
+      width: 100%;
+      @include flex($contents: flex-start, $items: flex-start, $direction: column, $gap-y: 20px);
+    }
+
+    .present-right {
+      position: relative;
+    }
+  }  
+}

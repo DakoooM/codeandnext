@@ -1,0 +1,31 @@
+@import "./colors";
+@import "./default/reset";
+@import "./default/modules";
+
+// Components
+@import "./components/Navbar";
+@import "./components/Footer";
+@import "./components/Button";
+@import "./components/SpinLoader";
+@import "./components/SelectMenu";
+@import "./components/Heading";
+@import "./components/DiscordBanner";
+@import "./components/Modal";
+@import "./components/Inputs";
+@import "./components/Notification";
+@import "./components/TextLine";
+@import "./components/HeaderPage";
+@import "./components/GotoTop";
+@import "./components/Breadcrumb";
+@import "./components/VideoPlayer";
+@import "./components/Card";
+@import "./components/Pagination";
+@import "./components/Markdown";
+@import "./components/Code";
+@import "./components/Comments";
+
+// Pages
+@import "./pages/Homepage";
+@import "./pages/SignupPage";
+@import "./pages/LearnPage";
+@import "./pages/Tutoriels";

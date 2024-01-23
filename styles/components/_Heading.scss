@@ -1,0 +1,44 @@
+.TitleH1, .TitleH2, .TitleH3, .TitleH4, .TitleH5, .TitleH6 {
+  // user-select: none;
+  color: var(--color-text-base);
+  font-weight: bold;
+
+  &:is(.TitleH1, .TitleH2, .TitleH3) {
+    font-weight: 900;
+  }
+
+  &:is(.TitleH1) {
+    font-size: 40px;
+  }
+
+  &:is(.TitleH2) {
+    font-size: 35px;
+  }
+
+  &:is(.TitleH3) {
+    font-size: 30px;
+  }
+
+  &:is(.TitleH4) {
+    font-size: 25px;
+  }
+
+  &:is(.TitleH5) {
+    font-size: 20px;
+  }
+
+  &:is(.TitleH6) {
+    font-size: 15px;
+  }
+
+  &.h1-size {
+    font-weight: 900;
+    font-size: 40px;
+  }
+
+  @for $i from 10 through 50 {
+    &.l-h-#{$i} {
+      line-height: 0px + $i;
+    }
+  }
+}

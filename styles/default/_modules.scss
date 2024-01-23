@@ -1,0 +1,157 @@
+/// @param {string} $name - Nom qu'on souhaite donner
+/// @param {string} $chemin - Chemin de la police d'écriture 
+/// @param {string} $format - Format (truetype/woff...)
+/// @example @include font("Inter", "fonts.google.com/inter", "truetype");
+@mixin font($name, $chemin, $format: "truetype") {
+  @font-face {
+    font-family: $name;
+    src: url($chemin) format($format);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+/// @param {justify-content} $contents
+/// @param {align-items} $items
+/// @param {flex-direction} $direction 
+/// @param {flex-wrap} $wrap
+/// @param {number} $gap-x
+/// @param {number} $gap-y
+@mixin flex(
+  $display: flex,
+  $contents: null,
+  $items: null,
+  $direction: null,
+  $wrap: null,
+  $gap-x: 0,
+  $gap-y: 0
+) {
+  display: $display;
+
+  @if ($contents !=null) {
+    justify-content: $contents;
+  }
+
+  @if ($items !=null) {
+    align-items: $items;
+  }
+
+  @if ($direction !=null) {
+    flex-direction: $direction;
+  }
+
+  @if ($wrap !=null) {
+    flex-wrap: $wrap;
+  }
+
+  row-gap: $gap-y;
+  column-gap: $gap-x;
+}
+
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+
+  @else if $size == tablet-portrait-up {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @else if $size == mobile-m {
+    @media (max-width: 375px) {
+      @content;
+    }
+  }
+
+  @else if $size == tablet-landscape-up {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @else if $size == desktop-up {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @else if $size == big-desktop-up {
+    @media (max-width: 1800px) {
+      @content;
+    }
+  }
+}
+
+@mixin useTransition() {
+  @if $active_transitions ==true {
+    transition: background 200ms ease, color 200ms ease;
+    will-change: color;
+  }
+}
+
+@mixin scrollbar(
+  $display: true,
+  $width: 7px,
+  $height: 5px,
+  $radius: 0px,
+  $color: blueviolet,
+  $active_color: none,
+  $active_size: 2px,
+  $bg: transparent
+) {
+  &::-webkit-scrollbar-track {
+    background-color: $bg;
+  }
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+
+    @if $display ==false {
+      display: none;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+    background-color: $color;
+
+    &:active {
+      @if $active_color == none {
+        outline: $active_size $color solid;
+      } @else {
+        outline: $active_size $active_color solid;
+      }
+    }
+  }
+}
+
+@mixin textLineHovered($base_color: null, $color: white, $width: 100%, $time: 500ms, $height: 2px, $bottom: 0px) {
+  display: inline-block;
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    width: $width;
+    transform: scaleX(0);
+    height: $height;
+    bottom: $bottom;
+    left: 0;
+    background-color: $color;
+    transform-origin: bottom right;
+    transition: transform $time ease-out;
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  } 
+}

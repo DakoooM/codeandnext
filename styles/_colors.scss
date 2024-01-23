@@ -1,0 +1,128 @@
+$active_transitions: false;
+
+:root {
+  // Globals
+  --color-text-base: black;
+  --border-color: #e3dce6;
+  
+  // Container pages
+  --container-pages: #f2eef4;
+  --container-pages-second: #e9e3ec;
+  
+  // Breadcrumb
+  --breadcrumb-separator: black;
+  --breadcrumb-link-color: #30b7ff;
+  --breadcrumb-link-color-hover: #3091ff;
+  --breadcrumb-link-active: black;
+
+  // Scrollbar
+  --scrollbar-bg: var(--container-pages);
+  --scrollbar-color: #dac7e2;
+
+  // Navbar
+  --bg-navbar: white;
+  --bg-navbar-shadow: rgba(0, 0, 0, 0.150);
+  --logo-nav-color: 0;
+  --nav-link-color: black;
+  --responsive-back-nav: rgba(255, 255, 255, 0.7);
+
+  // Footer
+  --bg-footer: white;
+  --footer-title-section: black;
+  --footer-links: #353637;
+  --footer-links-hover: blueviolet;
+  --footer-bg-copyright: #8a2be2;
+  --footer-text-copyright: white;
+
+
+  // SelectMenu
+  --select-border-color: black;
+  --select-text-color: black;
+  --select-bg-items: black;
+  --select-bg-items-textcolor: white;
+  --select-bg-items-textcolor-selected: white;
+  --select-box-shadow-color: rgba(0, 0, 0, 0.3);
+
+  // Homepage
+  --home-present-bg: #e7dfe9;
+  --home-present-bg-rgb: #e7dfe9;
+
+  // Card
+  --card-body: #22244d;
+  --card-bg-one: #f2eef4;
+  --card-bg-two: #e5dfe7;
+  --card-footer-text: black;
+  --card-footer-bg: #f1ecf3;
+  --card-desc: black;
+  --card-border: #e5dbeb;
+  --card-title-hover: blueviolet;
+  --card-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+
+  // Inputs
+  --input-text-color: black;
+  --input-bg-color: #e9e3ec;
+  --input-bg-border-color: #e1d5e7;
+}
+
+html.dark {
+  // Globals
+  --color-text-base: #d4dcff;
+  --border-color: #2a2e5e;
+
+  // Container pages
+  --container-pages: #171933;
+  --container-pages-second: #1b1d35;
+
+  // Breadcrumb
+  --breadcrumb-separator: #8491c7;
+  --breadcrumb-link-color: #8491c7;
+  --breadcrumb-link-color-hover: #d4dcff;
+  --breadcrumb-link-active: white;
+
+  // Scrollbar
+  --scrollbar-bg: var(--container-pages);
+  --scrollbar-color: #22244d;
+
+  // Navbar
+  --bg-navbar: transparent;
+  --bg-navbar-shadow: transparent;
+  --logo-nav-color: 1;
+  --nav-link-color: #e1e1e1;
+  --responsive-back-nav: #1b1b1bd8;
+  
+  // Footer
+  --bg-footer: #121427;
+  --footer-links: #989ec3;
+  --footer-links-hover: white;
+  --footer-title-section: white;
+  --footer-bg-copyright: #2e2e2e;
+  --footer-text-copyright: white;
+
+  // SelectMenu
+  --select-border-color: white;
+  --select-text-color: white;
+  --select-bg-items: white;
+  --select-bg-items-textcolor: black;
+  --select-bg-items-textcolor-selected: white;
+  --select-box-shadow-color: rgba(0, 0, 0, 0.2);
+
+  // Homepage
+  --home-present-bg: #121427;
+  --home-present-bg-rgb: #121427;
+
+  // Card
+  --card-body: #22244d;
+  --card-bg-one: #22244d;
+  --card-bg-two: #1b1e3d;
+  --card-footer-text: white;
+  --card-footer-bg: #121425;
+  --card-desc: #8491c7;
+  --card-border: #2a2e5e;
+  --card-title-hover: #5396e7;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  // Inputs
+  --input-text-color: white;
+  --input-bg-color: #171933;
+  --input-bg-border-color: #2A2E5E;
+}

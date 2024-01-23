@@ -1,0 +1,17 @@
+.TextLine {
+  display: flex;
+  align-items: center;
+
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: #c4c4c4;
+  }
+
+  .text {
+    margin: 0 10px;
+    color: black;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+  }
+}

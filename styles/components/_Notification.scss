@@ -1,0 +1,69 @@
+.Notify_Container {
+    position: fixed;
+    background-color: #dedede;
+    font-family: sans-serif;
+    color: #212121;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s ease;
+
+    &.hide {
+        transform: translateY(100px);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &.success {
+        border-top: #2f9d6a23 3px solid;
+        background-color: #31c380;
+    }
+
+    &.warning {
+        border-top: #a4862f23 3px solid;
+        background-color: #eebf31;
+    }
+
+    &.error {
+        border-top: #722e2923 3px solid;
+        background-color: #bf4037;
+    }
+
+    &.info {
+        border-top: #2c608a23 3px solid;
+        background-color: #3488ce;
+    }
+
+    .Notify {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 60px;
+        width: 100%;
+        padding: 10px 20px;
+        gap: 20px;
+
+        .Icon {
+            font-size: 30px;
+        }
+
+        .Message {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .Close {
+            font-size: 40px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:active {
+                outline: #212121 2px solid;
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @unique @default(autoincrement())
+  email     String   @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  role      Roles    @default(user)
+  createdAt DateTime @default(now())
+}
+
+enum Roles {
+  user
+  admin
+}
+
+model Category {
+  id          Int     @id @default(autoincrement())
+  title       String  @db.VarChar(255)
+  description String  @db.VarChar(255)
+  icon        String? @db.VarChar(255)
+}
+
+enum LevelPosts {
+  beginner
+  amateur
+  expert
+}
+
+model Posts {
+  id             Int         @id @default(autoincrement())
+  subject        String      @db.VarChar(255)
+  subject_url    String      @db.LongText
+  description    String      @db.LongText
+  level          LevelPosts? @default(beginner)
+  technology     Technos?    @default(html)
+  author_name    String?     @default("")
+  author_profile String?     @default("")
+  public         Boolean?    @default(false)
+  publishedAt    DateTime    @default(now())
+  editAt         DateTime    @default(now())
+}
+
+enum Technos {
+  react
+  html
+  css
+  javascript
+  php
+}
+
+model Comments {
+  id          Int      @id
+  subject     String   @db.VarChar(255)
+  displayName String?  @default("")
+  profile_id  Int?     @default(0)
+  content     String   @db.LongText
+  postedAt    DateTime @default(now())
+  editAt      DateTime @updatedAt
+}

@@ -1,0 +1,129 @@
+.homepage {
+  @include flex($direction: column, $gap-y: 100px);
+
+  .home-p-desc {
+    font-size: 17px;
+    max-width: 700px;
+    color: var(--color-text-base);
+    line-height: 22px;
+  }
+
+  .btn-row {
+    position: relative;
+    width: 100%;
+    @include flex($contents: flex-start, $items: center, $direction: row, $wrap: wrap,  $gap-y: 10px, $gap-x: 10px);
+
+    @include for-size(tablet-portrait-up) {
+      .Button {
+        a {
+          flex: 1;
+        }
+
+        button {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .iconPresent {
+    position: relative;
+    height: 100%;
+    user-select: none;
+
+    @include for-size(desktop-up) {
+      width: 300px;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      display: none;
+    }
+  }
+  
+  .home-advantages {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+
+    .home-adv-ctn {
+      width: 90%;
+      min-height: 400px;
+      margin: 0 auto;
+
+      @include flex($contents: space-between, $items: center, $direction: row, $wrap: wrap, $gap-x: 20px, $gap-y: 20px);
+    
+      .home-artc-adv {
+        width: 100%;
+        max-width: 400px;
+        @include flex($contents: center, $items: flex-start, $direction: column, $gap-x: 20px, $gap-y: 20px);
+
+        @include for-size(tablet-landscape-up) {
+          max-width: 100%;
+        }
+
+        .artcl-icon {
+          font-size: 100px;
+          padding: 10px;
+          border-radius: 50%;
+          background-color: var(--home-present-bg);
+        }
+
+        .artcl-paragraph {
+          font-size: 15px;
+          color: var(--color-text-base);
+        }
+      }
+    }
+  }
+
+  .home-video {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    min-height: 400px;
+    background-color: var(--home-present-bg);
+    
+    .home-video-ctn {
+      width: 90%;
+      min-height: 600px;
+      margin: 0 auto;
+      @include flex($contents: center, $items: center, $direction: row, $wrap: nowrap, $gap-x: 10px);
+
+      @include for-size(desktop-up) {
+        flex-direction: column;
+        gap: 40px;
+
+        div.video-left {
+          width: 100%;
+          min-height: initial !important;
+        }
+
+        div.video-right {
+          width: 100%;
+          min-height: initial !important;
+        }
+      }
+
+      .video-left {
+        position: relative;
+        width: 50%;
+        min-height: 600px;
+
+        @include flex($contents: center, $items: flex-start, $direction: column, $gap-y: 10px);
+
+        .video_paragraph {
+          font-size: 15px;
+          max-width: 600px;
+          color: var(--color-text-base);
+        }
+      }
+
+      .video-right {
+        position: relative;
+        width: 50%;
+        min-height: 600px;
+        @include flex($contents: center, $items: center);
+      }
+    }
+  }
+}

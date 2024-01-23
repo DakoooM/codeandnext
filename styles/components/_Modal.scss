@@ -1,0 +1,106 @@
+.Modal_container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 200ms 300ms ease, visibility 200ms 200ms ease;
+  
+  &.show {
+    transition: opacity 200ms ease, visibility 200ms ease;
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+
+    .Modal {
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    max-width: 700px;
+    overflow-y: auto;
+    max-height: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    transform: translate(-50%, -80%);
+    transition: transform 300ms ease;
+
+    @include scrollbar($display: false);
+    
+    .modal-header {
+      height: 50px;
+      @include flex($contents: space-between, $items: center);
+      border-bottom: 2px #d9d9d9 solid;
+
+      .modal-title {
+        color: black;
+        font-size: 25px;
+        font-family: "Inter", sans-serif;
+        font-weight: 900;
+      }
+
+      .modal-close {
+        color: black;
+        font-size: 40px;
+        font-family: "Inter", sans-serif;
+        font-weight: 900;
+        cursor: pointer;
+      }
+    }
+
+    .modal-body {
+      margin-top: 20px;
+
+      .form-signup {
+        position: relative;
+        width: 100%;  
+        @include flex($direction: column, $gap-y: 20px);
+
+        .btns-flex {
+          @include flex(
+            $contents: space-between, 
+            $items: flex-start, 
+            $wrap: wrap, 
+            $direction: row, 
+            $gap-x: 20px, 
+            $gap-y: 20px
+          );
+
+          color: #2f3337;
+        }
+
+        .already_register {
+          color: #118dd4;
+          text-align: center;
+          font-family: "Inter", sans-serif;
+          font-size: 15px;
+          user-select: none;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:is(:hover, :active) {
+            color: #38b6ff;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.DiscordBanner {
+  position: relative;
+  perspective: 2000px;
+
+  .discord_container {
+    position: relative;
+    height: 400px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px 250px 20px 40px;
+    user-select: none;
+  
+    background: url(https://cdn.discordapp.com/attachments/1136410977278115880/1136411016230621236/blurry-gradient-haikei.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    @include flex($contents: center, $items: flex-start, $direction: column, $gap-y: 10px);
+  
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: rotateY(20deg) rotateX(-5deg);
+    transform-style: preserve-3d;
+
+    @include for-size(tablet-landscape-up){
+      padding: 20px 40px;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.1;
+    }
+  
+    .head_white {
+      color: white;
+      text-shadow: 1px 1px 2px #0000007d;
+    }
+  
+    .paragraph {
+      color: white;
+      font-size: 15px;
+      max-width: 500px;
+    }
+  
+    .discord-widget {
+      position: absolute;
+      top: 50%;
+      right: -50px;
+      width: 250px;
+      height: 80%;
+      border-radius: 10px;
+      transform: translateY(-50%);
+      visibility: visible;
+      box-shadow: 0 0 20px 0 #00000026;
+
+      @include for-size(tablet-landscape-up){
+        visibility: hidden;
+      }
+    }
+  }
+}

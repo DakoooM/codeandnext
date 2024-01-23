@@ -1,0 +1,87 @@
+.input-group {
+  position: relative;
+  width: 100%;
+  @include flex($contents: center, $items: flex-start, $gap-y: 5px, $direction: column);
+
+  .Label {
+    color: var(--color-text-base);
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+.InputEmail {
+  position: relative;
+  width: 100%;
+  @include flex($direction: row, $wrap: nowrap, $gap-x: 5px);
+
+  .passwdIcon {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: blueviolet;
+    @include flex($contents: center, $items: center);
+
+    .icon {
+      font-size: 25px;
+      color: white;
+    }
+  }
+}
+
+.InputArea {
+  width: 100%; 
+  min-height: 200px;
+  resize: none;
+  padding: 15px 10px;
+  background: var(--input-bg-color);
+  border: var(--input-bg-border-color) 1px solid;
+  border-radius: 3px;
+  transition: box-shadow 200ms ease;
+  font-family: "Inter", sans-serif;
+  color: var(--input-text-color);
+
+  @include scrollbar(true, 5px, 5px, 0, #2A2E5E, none, 4px, transparent);
+
+  &::placeholder {
+    color: #6c728b;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: #c753e7;
+    box-shadow: 0 0 0 3px #c753e73f;
+  }
+}
+
+.Input {
+  height: 40px;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  background-color: white;
+  border: var(--input-bg-border-color) 1px solid;
+  background: var(--input-bg-color);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 200ms ease;
+  user-select: none;
+  color: var(--input-text-color);
+  
+  &::placeholder {
+    color: #2A2E5E;
+    opacity: .5;
+  }
+
+  &:is(:read-only, :disabled) {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #c753e7;
+    box-shadow: 0 0 0 3px #c753e73f;
+  }
+}

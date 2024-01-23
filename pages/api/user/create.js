@@ -1,0 +1,18 @@
+import { prisma } from "@/utils/database"
+
+export default async function handler(req, res) {
+  if (req.method === "GET") {
+    try {
+      const result = await prisma.user.create({
+        data: {
+          email: "dakoTest4586@gmail.com",
+          password: "dako123"
+        }
+      })
+    
+      res.status(200).json(result);
+    } catch(error) {
+      res.status(500).json(error);
+    }
+  }
+}

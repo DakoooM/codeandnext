@@ -1,0 +1,142 @@
+.Navbar {
+  position: relative;
+  padding: 0 40px;
+  width: 100%;
+  height: 80px;
+  z-index: 998;
+  box-shadow: 0 0 10px 0 var(--bg-navbar-shadow);
+  background: var(--bg-navbar);
+  @include useTransition();
+
+  @include flex(
+    $contents: space-between,
+    $items: center,
+    $direction: row,
+    $wrap: nowrap,
+    $gap-x: 10px
+  );
+
+  &.toogle {
+    div.right {
+      @include flex(
+        $contents: center,
+        $items: center,
+        $direction: column,
+        $wrap: nowrap,
+        $gap-x: 0,
+        $gap-y: 10px
+      )
+    }
+  }
+
+  @include for-size(desktop-up) {
+    div.right {
+      display: none;
+
+      position: fixed;
+      width: 100vw;
+      height: 100%;
+      inset: 0;
+      background-color: var(--responsive-back-nav);
+      backdrop-filter: blur(2px);
+ 
+      div.btn-ctn {
+        flex-direction: column;
+      }
+    }
+
+    div.links {
+      flex-direction: column;
+    }
+
+
+    div.hamburger-react {
+      display: block;
+    }
+  }
+
+  .hamburger-react {
+    z-index: 999;
+    color: var(--color-text-base);
+    display: none;
+  }
+
+  .logo {
+    position: relative;
+    width: 100px;
+    height: 100%;
+    user-select: none;
+    filter: invert(var(--logo-nav-color));
+    z-index: 999;
+    // transition: filter 300ms ease;
+  }
+
+  .right {
+    position: relative;
+    height: 100%;
+    padding: 0 10px;
+
+    @include flex(
+      $items: center,
+      $gap-x: 30px,
+    );
+
+    .links {
+      @include flex(
+        $contents: null,
+        $items: center,
+        $direction: null,
+        $wrap: null,
+        $gap-x: 20px,
+        $gap-y: 10px
+      );
+
+      .navLink {
+        @include flex(
+          $contents: center,
+          $items: center,
+          $direction: row,
+          $wrap: nowrap,
+          $gap-x: 10px,
+        );
+      
+        font-family: "Inter";
+        user-select: none;
+        font-size: 15px;
+        font-weight: 600;
+
+        .icon {
+          font-size: 20px;
+
+          &.books {
+            font-size: 25px;
+          }
+        }
+
+        &:not(.active) {
+          color: var(--nav-link-color);
+          @include useTransition();
+        }
+
+        &.active {
+          color: blueviolet;
+        }
+      }
+    }
+
+    .btn-ctn {
+      @include flex(
+        $contents: null,
+        $items: center,
+        $direction: row,
+        $wrap: nowrap,
+        $gap-x: 10px,
+        $gap-y: 10px
+      );
+    }
+
+    .modeIcon {
+      color: var(--nav-link-color);
+    }
+  }
+}
